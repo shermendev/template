@@ -1,0 +1,17 @@
+### Node ###
+node_modules/
+logs
+*.log
+npm-debug.log*
+
+### IDE & OS ###
+.vscode
+Thumbs.db
+
+### Builds ###
+/dist/
+
+### Generated ###
+/src/html/includes/
+/src/sass/generated/
+/src/img/sprite.*

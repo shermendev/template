@@ -1,0 +1,18 @@
+=png-sprite($sprite)
+  $icon-name: nth($sprite, 10)
+  &--#{$icon-name}
+    display: inline-flex
+    &::before
+      content: ''
+      +sprite($sprite)
+
+// png sprites
+// .o-icon
+  // +png-sprite($icon1)
+  // +png-sprite($icon2)
+
+// svg sprites
+// .o-icon
+  // &--accomplishment
+  //   fill: $g-white
+  //   font-size: 48px
