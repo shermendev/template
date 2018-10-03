@@ -23,3 +23,7 @@
 =parent-modifier($selector)
   #{$selector} &
     @content
+
+=breakpoint($point, $type: 'max-width', $unit: 'px')
+  @media ($type: $point + $unit)
+    @content
