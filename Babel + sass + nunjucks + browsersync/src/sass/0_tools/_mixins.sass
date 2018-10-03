@@ -1,0 +1,29 @@
+=font-src($path)
+  $types: (woff2: woff2, woff: woff, truetype: ttf)
+  $comma: ','
+  $urls: ()
+  @each $type-name, $type in $types
+    $urls: $urls + url('#{$path}.#{$type}') format('#{$type-name}')
+    @if index($types, $type-name $type) != length($types)
+      $urls: $urls#{$comma}
+  src: #{$urls}
+
+=ff($name)
+  @if($name == 'font1')
+    font-family: 'font1', sans-serif
+  @else if($name == 'font2')
+    font-family: 'font2', sans-serif
+  @else if($name == 'font3')
+    font-family: 'font3', sans-serif
+
+=make-pseudo-important
+  &#{&}
+    @content
+
+=parent-modifier($selector)
+  #{$selector} &
+    @content
+
+=breakpoint($point, $type: 'max-width', $unit: 'px')
+  @media ($type: $point + $unit)
+    @content

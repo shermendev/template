@@ -1,0 +1,24 @@
+{% import "partials/_mixins.html" as mixins %}
+{% import "partials/_data.html" as data %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <link rel="stylesheet" media="all" href="css/style.css">
+  <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
+</head>
+
+<body>
+  <div id="page" class="l-page">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <!-- /.l-page -->
+  <script async src="js/bundle.js"></script>
+</body>
+
+</html>
