@@ -7,7 +7,7 @@ gulp.task(
   gulp.series(
     gulp.parallel('html:dev', 'copyFonts', gulp.series('generate sprites', 'images:dev', 'css:dev')),
     'notify',
-    'watch',
+    'watch'
   )
 )
 

@@ -11,7 +11,7 @@ function concurrentlyBuildGulp() {
 }
 
 function concurrentlyDev() {
-  return run('concurrently "webpack --config webpack.dev.js -w" "gulp"')
+  return run('concurrently "webpack --config webpack.dev.js" "gulp"')
 }
 
 // purgecss requires a ready js build

@@ -12,7 +12,7 @@
     "dev": "gulp concurrently:dev",
     "gulp": "gulp",
     "gulp-build": "gulp build",
-    "webpack": "webpack --config webpack.dev.js -w",
+    "webpack": "webpack --config webpack.dev.js",
     "webpack-build": "webpack --config webpack.prod.js"
   },
   "browserslist": [

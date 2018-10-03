@@ -2,9 +2,9 @@ const {
   resolve
 } = require('path')
 
-const {
-  ProvidePlugin
-} = require('webpack')
+// const {
+//   ProvidePlugin
+// } = require('webpack')
 
 const WebpackNotifierPlugin = require('webpack-notifier')
 
