@@ -10,7 +10,7 @@ const prettify = require('gulp-prettify')
 
 function htmlPreRender() {
   return gulp
-    .src(config.src._htmlIncludes)
+    .src(config.src._htmlIncludes + '/**/*.html')
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -18,14 +18,14 @@ function htmlPreRender() {
       property: 'data'
     }))
     .pipe(nunjucksRender({
-      path: config.src.htmlRender
+      path: config.src.html
     }))
     .pipe(gulp.dest(config.src.htmlIncludes))
 }
 
 function htmlDev() {
   return gulp
-    .src(config.src.html)
+    .src(config.src.html + '/*.html')
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -33,7 +33,7 @@ function htmlDev() {
       property: 'data'
     }))
     .pipe(nunjucksRender({
-      path: config.src.htmlRender
+      path: config.src.html
     }))
     .pipe(prettify({
       end_with_newline: true,
@@ -46,12 +46,12 @@ function htmlDev() {
 
 function htmlBuild() {
   return gulp
-    .src(config.src.html)
+    .src(config.src.html + '/*.html')
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
     .pipe(nunjucksRender({
-      path: config.src.htmlRender
+      path: config.src.html
     }))
     .pipe(
       htmlmin({
@@ -67,3 +67,7 @@ function htmlBuild() {
 
 gulp.task('html:dev', gulp.series(htmlPreRender, htmlDev))
 gulp.task('html:build', gulp.series(htmlPreRender, htmlBuild))
+
+gulp.task('html:watch', function () {
+  gulp.watch([config.src.html + '/**/*.html', '!' + config.src.html + '/includes/**/*.html'], gulp.series('html:dev'))
+})

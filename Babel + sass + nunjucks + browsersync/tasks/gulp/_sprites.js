@@ -15,7 +15,7 @@ const through2 = require('through2')
 
 function generateSpritePng() {
   const spriteData = gulp
-    .src(config.src.iconsPng)
+    .src(config.src.sprite + '/png/*.png')
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -23,7 +23,7 @@ function generateSpritePng() {
       spritesmith({
         cssName: '_sprite-png.sass',
         imgName: 'sprite.png',
-        imgPath: config.src.icons + '.png'
+        imgPath: './../img/sprite.png'
       })
     )
 
@@ -37,14 +37,14 @@ function generateSpritePng() {
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
-    .pipe(gulp.dest(config.src.sassGen))
+    .pipe(gulp.dest(config.src.sassGenerated))
 
   return merge(imgStream, cssStream)
 }
 
 function generateSpriteSvg() {
   return gulp
-    .src(config.src.iconsSvg)
+    .src(config.src.sprite + '/svg/*.svg')
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -89,7 +89,7 @@ function generateSpriteSvg() {
         .pipe(consolidate('lodash', {
           symbols: data
         }))
-        .pipe(gulp.dest(config.src.sassGen))
+        .pipe(gulp.dest(config.src.sassGenerated))
       cb()
     }))
     .pipe(cheerio({
@@ -107,4 +107,9 @@ function generateSpriteSvg() {
     .pipe(gulp.dest(config.dest.img))
 }
 
-gulp.task('generate sprites', gulp.parallel(generateSpritePng, generateSpriteSvg))
+gulp.task('sprites', gulp.parallel(generateSpritePng, generateSpriteSvg))
+
+gulp.task('sprites:watch', function () {
+  gulp.watch(config.src.sprite + '/**/*.svg', generateSpriteSvg)
+  gulp.watch(config.src.sprite + '/**/*.png', generateSpritePng)
+})

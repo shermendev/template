@@ -2,10 +2,14 @@ const gulp = require('gulp')
 
 const config = require('./../_config')
 
-function copyFonts() {
+function fonts() {
   return gulp
-    .src(config.src.allFonts)
+    .src(config.src.fonts + '/**/*.{ttf,woff,woff2,svg,eot}')
     .pipe(gulp.dest(config.dest.fonts))
 }
 
-gulp.task('copyFonts', copyFonts)
+gulp.task('fonts', fonts)
+
+gulp.task('fonts:watch', function () {
+  gulp.watch(config.src.fonts + '/**/*.{ttf,woff,woff2,svg,eot}', gulp.series('fonts'))
+})

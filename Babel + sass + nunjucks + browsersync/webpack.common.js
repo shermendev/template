@@ -11,7 +11,7 @@ const WebpackNotifierPlugin = require('webpack-notifier')
 const config = require('./tasks/_config')
 
 module.exports = {
-  entry: config.src.js,
+  entry: config.src.js + '/app.js',
   module: {
     rules: [{
       exclude: /node_modules/,

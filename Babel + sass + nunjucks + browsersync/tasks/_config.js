@@ -5,12 +5,13 @@ const srcPath = './src'
 
 const config = {
   dest: {
+    root: destPath,
     css: destPath + '/css',
+    favicon: destPath + '/img/favicon',
     fonts: destPath + '/fonts',
     html: destPath,
     img: destPath + '/img',
-    js: destPath + '/js',
-    root: destPath
+    js: destPath + '/js'
   },
   errorHandler: function () {
     var args = Array.prototype.slice.call(arguments)
@@ -22,26 +23,20 @@ const config = {
     this.emit('end')
   },
   src: {
-    _htmlIncludes: srcPath + '/html/_includes/**/*.html',
-    allFonts: srcPath + '/fonts/**/*.{ttf,woff,woff2,svg,eot}',
-    allHtml: [srcPath + '/html/**/*.html', '!' + srcPath + '/html/includes/**/*.html'],
-    allIcons: srcPath + '/img/sprite/**/*.{png,svg}',
-    allImgNoSprites: [srcPath + '/img/**/*.{png,jpg,svg}', '!' + srcPath + '/img/sprite/**/*'],
-    allSass: srcPath + '/sass/**/*.sass',
-    html: srcPath + '/html/*.html',
+    root: srcPath,
+    fonts: srcPath + '/fonts',
+    html: srcPath + '/html',
+    // #region trick to enable frontMatter on includes
     htmlIncludes: srcPath + '/html/includes',
-    htmlRender: srcPath + '/html',
-    icons: './../img/sprite',
-    iconsPng: srcPath + '/img/sprite/png/*.png',
-    iconsSvg: srcPath + '/img/sprite/svg/*.svg',
+    _htmlIncludes: srcPath + '/html/_includes',
+    // #endregion
+    htmlGenerated: srcPath + '/html/generated',
     img: srcPath + '/img',
-    js: srcPath + '/js/app.js',
-    purgeContent: [
-      destPath + '/*.html',
-      destPath + '/js/bundle.js'
-    ],
-    sass: srcPath + '/sass/*.sass',
-    sassGen: srcPath + '/sass/generated',
+    imgNoSprites: [srcPath + '/img/**/*.{png,jpg,svg}', '!' + srcPath + '/img/sprite/**/*'],
+    sass: srcPath + '/sass',
+    sassGenerated: srcPath + '/sass/generated',
+    sprite: srcPath + '/img/sprite',
+    js: srcPath + '/js'
   }
 }
 

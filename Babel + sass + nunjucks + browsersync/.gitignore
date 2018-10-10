@@ -13,5 +13,6 @@ Thumbs.db
 
 ### Generated ###
 /src/html/includes/
+/src/html/generated/
 /src/sass/generated/
 /src/img/sprite.*

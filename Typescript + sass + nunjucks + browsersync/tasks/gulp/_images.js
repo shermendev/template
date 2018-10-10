@@ -11,7 +11,7 @@ const plumber = require('gulp-plumber')
 
 function imagesDev() {
   return gulp
-    .src(config.src.allImgNoSprites)
+    .src(config.src.imgNoSprites)
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -20,7 +20,7 @@ function imagesDev() {
 
 function imagesBuild() {
   return gulp
-    .src(config.src.allImgNoSprites)
+    .src(config.src.imgNoSprites)
     .pipe(plumber({
       errorHandler: config.errorHandler
     }))
@@ -54,3 +54,7 @@ function imagesBuild() {
 
 gulp.task('images:build', imagesBuild)
 gulp.task('images:dev', imagesDev)
+
+gulp.task('images:watch', function () {
+  gulp.watch(config.src.imgNoSprites, gulp.series('images:dev'))
+})
