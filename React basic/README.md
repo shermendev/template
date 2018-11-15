@@ -6,16 +6,16 @@
 
 ## How to use
 
-First let's create-react-app (change `my-app` to your project name)
+First let's use `create-react-app` (change `my-app` to your project name)
 
 ```bash
 npx create-react-app ./my-app
 ```
 
-Copy files from `files` folder to `my-app` root directory and then go to your project directory. You can just run:
+Copy files from `files` folder to `my-app` root directory and then go to your project's directory.
 
 ```bash
-cp -r ./files/* ./my-app && cd my-app
+cd my-app
 ```
 
 Install additional packages.
