@@ -1,7 +1,5 @@
 const gulp = require('gulp')
 
-const config = require('./../_config')
-
 const cheerio = require('gulp-cheerio')
 const cheerioNode = require('cheerio')
 const consolidate = require('gulp-consolidate')
@@ -12,6 +10,8 @@ const spritesmith = require('gulp.spritesmith')
 const svgStore = require('gulp-svgstore')
 const svgmin = require('gulp-svgmin')
 const through2 = require('through2')
+
+const config = require('./../_config')
 
 function generateSpritePng() {
   const spriteData = gulp

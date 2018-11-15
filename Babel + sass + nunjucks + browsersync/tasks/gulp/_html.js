@@ -1,12 +1,12 @@
 const gulp = require('gulp')
 
-const config = require('./../_config')
-
 const frontMatter = require('gulp-front-matter')
 const htmlmin = require('gulp-htmlmin')
 const nunjucksRender = require('gulp-nunjucks-render')
 const plumber = require('gulp-plumber')
 const prettify = require('gulp-prettify')
+
+const config = require('./../_config')
 
 function htmlPreRender() {
   return gulp

@@ -1,13 +1,13 @@
 const gulp = require('gulp')
 
-const config = require('./../_config')
-
 const cache = require('gulp-cache')
 const imagemin = require('gulp-imagemin')
 const imageminMozjpeg = require('imagemin-mozjpeg')
 const imageminPngquant = require('imagemin-pngquant')
 const imageminZopfli = require('imagemin-zopfli')
 const plumber = require('gulp-plumber')
+
+const config = require('./../_config')
 
 function imagesDev() {
   return gulp

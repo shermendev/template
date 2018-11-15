@@ -1,7 +1,5 @@
 const gulp = require('gulp')
 
-const config = require('./../_config')
-
 const autoprefixer = require('gulp-autoprefixer')
 const cleanCSS = require('gulp-clean-css')
 const groupCssMediiaQueries = require('gulp-group-css-media-queries')
@@ -9,6 +7,8 @@ const plumber = require('gulp-plumber')
 const purgecss = require('gulp-purgecss')
 const sass = require('gulp-sass')
 const sourcemaps = require('gulp-sourcemaps')
+
+const config = require('./../_config')
 
 function cssDev() {
   return gulp

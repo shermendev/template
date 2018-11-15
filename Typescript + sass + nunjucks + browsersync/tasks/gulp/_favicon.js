@@ -1,9 +1,9 @@
 const gulp = require('gulp')
 
-const config = require('./../_config')
-
 const favicons = require('favicons').stream
 const plumber = require('gulp-plumber')
+
+const config = require('./../_config')
 
 function faviconBuild() {
   return gulp

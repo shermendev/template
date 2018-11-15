@@ -15,7 +15,7 @@ Clone this repo and then in command line type:
 
 Task name             | Description
 :-|:-
-`npm run dev`         | run both gulp and webpack dev tasks and watch files
+`npm run start`       | run both gulp and webpack dev tasks and watch files
 `npm run build`       | run both gulp and webpack build tasks
 `npm run browsersync` | run browsersync
 
