@@ -1,0 +1,11 @@
+{
+  "src/**/styled.js": "stylelint",
+  "*.js": [
+    "prettier --write",
+    "eslint --fix --max-warnings=0 --ignore-pattern '!.eslintrc.js'"
+  ],
+  "*.sass": [
+    "yarn run sass-lint:fix",
+    "yarn run sass-lint"
+  ]
+}
